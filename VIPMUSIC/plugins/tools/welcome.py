@@ -43,13 +43,14 @@ def welcomepic(pic, user, chat, id, uname):
     font = ImageFont.truetype('assets/font.ttf', size=30)
     font2 = ImageFont.truetype('assets/font.ttf', size=60)
     
-    metallic gold = (212, 175, 55)  
-    silver = (192, 192, 192)   
+    saffron = (255, 153, 51)  
+    white = (255, 255, 255)   
     green = (19, 136, 8)
     
     
-    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="metallic gold", font=font)
-    draw.text((650, 350), f'ID : {id}', fill="silver", font=font)
+    
+    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="saffron", font=font)
+    draw.text((650, 350), f'ID : {id}', fill="white", font=font)
     draw.text((650, 450), f"USERNAME : {uname}", fill="green",font=font)
     pfp_position = (100, 133)  
     background.paste(pfp, pfp_position, pfp)  

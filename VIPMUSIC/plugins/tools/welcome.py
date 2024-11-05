@@ -48,7 +48,7 @@ def welcomepic(pic, user, chat, id, uname):
     green = (19, 136, 8)
     
     draw.text((650, 250), f'NAME : {unidecode(user)}', fill="white", font=font)
-    draw.text((650, 350), f'ID : {id}', fill="white", font=font)
+    draw.text((650, 350), f'ID : {id}', fill="saffron", font=font)
     draw.text((650, 450), f"USERNAME : {uname}", fill="green",font=font)
     pfp_position = (100, 133)  
     background.paste(pfp, pfp_position, pfp)  

@@ -10,7 +10,7 @@ from VIPMUSIC.misc import SUDOERS
 from VIPMUSIC import app
 from VIPMUSIC.utils.database import *
 
-LOGGER = getLogger(name)
+LOGGER = getLogger(__name__)
 
 
 class temp:
@@ -61,7 +61,7 @@ def welcomepic(pic, user, chat, id, uname):
 
 @app.on_message(filters.command("welcome") & ~filters.private)
 async def auto_state(_, message):
-    usage = "❖ ᴜsᴀɢᴇ ➥ /swel [ᴇɴᴀʙʟᴇ|ᴅɪsᴀʙʟᴇ]"
+    usage = "**❖ ᴜsᴀɢᴇ ➥** /swel [ᴇɴᴀʙʟᴇ|ᴅɪsᴀʙʟᴇ]"
     if len(message.command) == 1:
         return await message.reply_text(usage)
     chat_id = message.chat.id
@@ -112,7 +112,7 @@ async def greet_group(_, member: ChatMemberUpdated):
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
             await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
-            except Exception as e:
+        except Exception as e:
             LOGGER.error(e)
     try:
         welcomeimg = welcomepic(
@@ -148,3 +148,6 @@ reply_markup=InlineKeyboardMarkup([
         os.remove(f"downloads/pp{user.id}.png")
     except Exception as e:
         pass
+
+
+      

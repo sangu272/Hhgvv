@@ -47,9 +47,9 @@ def welcomepic(pic, user, chat, id, uname):
     white = (255, 255, 255)   
     green = (19, 136, 8)
     
-    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="white", font=font)
-    draw.text((650, 350), f'ID : {id}', fill="white", font=font)
-    draw.text((650, 450), f"USERNAME : {uname}", fill="white",font=font)
+    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="golden", font=font)
+    draw.text((650, 350), f'ID : {id}', fill="silver", font=font)
+    draw.text((650, 450), f"USERNAME : {uname}", fill="golden",font=font)
     pfp_position = (100, 133)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
@@ -133,7 +133,9 @@ async def greet_group(_, member: ChatMemberUpdated):
 """,
 reply_markup=InlineKeyboardMarkup(
 [
+[InlineKeyboardButton(f"ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/{app.username}?startgroup=True")
 [InlineKeyboardButton(f"ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/{app.username}?startgroup=True"),
+]
 ]
 ]
 ))

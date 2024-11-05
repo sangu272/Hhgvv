@@ -47,8 +47,6 @@ def welcomepic(pic, user, chat, id, uname):
     white = (255, 255, 255)   
     green = (19, 136, 8)
     
-    
-    
     draw.text((650, 250), f'NAME : {unidecode(user)}', fill="saffron", font=font)
     draw.text((650, 350), f'ID : {id}', fill="white", font=font)
     draw.text((650, 450), f"USERNAME : {uname}", fill="green",font=font)

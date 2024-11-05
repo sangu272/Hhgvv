@@ -119,9 +119,9 @@ async def greet_group(_, member: ChatMemberUpdated):
             pic, user.first_name, member.chat.title, user.id, user.username
         )
         button_text = "❍ 𓆩 𝗦𝐓𝐘𝐋𝐈𝐒𝐇 ⌯ 𝗡𝐀𝐌𝐄 𓆪 ❍"
-            add_button_text = "❍ 𝐏𝐑𝐎𝐌𝐎𝐓𝐈𝐎𝐍 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄 ❍"
-            deep_link = f"https://t.me/TG_NAME_STYLE"
-            add_link = f"https://t.me/TG_NAME_STYLE/4602"
+        add_button_text = "❍ 𝐏𝐑𝐎𝐌𝐎𝐓𝐈𝐎𝐍 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄 ❍"
+        deep_link = f"https://t.me/TG_NAME_STYLE"
+        add_link = f"https://t.me/TG_NAME_STYLE/4602"
         temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
             member.chat.id,
             photo=welcomeimg,
@@ -138,9 +138,9 @@ async def greet_group(_, member: ChatMemberUpdated):
 """,
 reply_markup=InlineKeyboardMarkup([
     [InlineKeyboardButton(button_text, url=deep_link)],
-     [InlineKeyboardButton(text=add_button_text, url=add_link)],
-        ])
-        )
+    [InlineKeyboardButton(text=add_button_text, url=add_link)],
+ ])
+)
     except Exception as e:
         LOGGER.error(e)
     try:

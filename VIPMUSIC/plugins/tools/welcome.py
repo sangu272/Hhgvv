@@ -43,9 +43,9 @@ def welcomepic(pic, user, chat, id, uname):
     font = ImageFont.truetype('assets/font.ttf', size=30)
     font2 = ImageFont.truetype('assets/font.ttf', size=60)
     
-    saffron = (255, 153, 51)  
-    white = (255, 255, 255)   
-    green = (19, 136, 8)
+    gold = (255, 153, 51)  
+    silver = (255, 255, 255)   
+    golden = (19, 136, 8)
     
     draw.text((650, 250), f'NAME : {unidecode(user)}', fill="gold", font=font)
     draw.text((650, 350), f'ID : {id}', fill="silver", font=font)

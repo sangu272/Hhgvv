@@ -100,7 +100,7 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     background = Image.open("assets/wel2.png")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp, brightness_factor=brightness_factor) 
-    pfp = pfp.resize((825, 824))
+    pfp = pfp.resize((460, 450))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('assets/font.ttf', size=110)
     welcome_font = ImageFont.truetype('assets/font.ttf', size=60)
@@ -160,7 +160,7 @@ async def greet_new_member(_, member: ChatMemberUpdated):
                 user.photo.big_file_id, file_name=f"pp{user.id}.png"
             )
         except AttributeError:
-            pic = "VIPMUSIC/assets/upic.png"
+            pic = "assets/upic.png"
         if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
             try:
                 await temp.MELCOW[f"welcome-{member.chat.id}"].delete()

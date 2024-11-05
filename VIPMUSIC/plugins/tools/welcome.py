@@ -37,11 +37,16 @@ def welcomepic(pic, user, chat, id, uname):
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
-        (550, 550)
+        (500, 500)
     ) 
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('assets/font.ttf', size=60)
     font2 = ImageFont.truetype('assets/font.ttf', size=90)
+    
+    saffron = (255, 153, 51)  
+    white = (255, 255, 255)   
+    green = (19, 136, 8)
+    
     draw.text((650, 250), f'NAME : {unidecode(user)}', fill="white", font=font)
     draw.text((650, 350), f'ID : {id}', fill="white", font=font)
     draw.text((650, 450), f"USERNAME : {uname}", fill="white",font=font)

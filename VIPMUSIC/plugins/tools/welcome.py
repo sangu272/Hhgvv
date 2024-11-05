@@ -42,7 +42,7 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('assets/font.ttf', size=60)
     font2 = ImageFont.truetype('assets/font.ttf', size=90)
-    draw.text((510, 300), f'NAME : {unidecode(user)}', fill="white", font=font)
+    draw.text((650, 350), f'NAME : {unidecode(user)}', fill="white", font=font)
     draw.text((650, 450), f'ID : {id}', fill="white", font=font)
     draw.text((700, 600), f"USERNAME : {uname}", fill="white",font=font)
     pfp_position = (100, 133)  

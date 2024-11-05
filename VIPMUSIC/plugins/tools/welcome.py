@@ -10,7 +10,7 @@ from VIPMUSIC.misc import SUDOERS
 from VIPMUSIC import app
 from VIPMUSIC.utils.database import *
 
-LOGGER = getLogger(__name__)
+LOGGER = getLogger(name)
 
 
 class temp:
@@ -43,12 +43,12 @@ def welcomepic(pic, user, chat, id, uname):
     font = ImageFont.truetype('assets/font.ttf', size=30)
     font2 = ImageFont.truetype('assets/font.ttf', size=60)
     
-    metallic gold = (212, 175, 55)  
+    metallic = (212, 175, 55)  
     silver = (192, 192, 192)   
     green = (19, 136, 8)
     
     
-    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="metallic gold", font=font)
+    draw.text((650, 250), f'NAME : {unidecode(user)}', fill="metallic", font=font)
     draw.text((650, 350), f'ID : {id}', fill="silver", font=font)
     draw.text((650, 450), f"USERNAME : {uname}", fill="green",font=font)
     pfp_position = (100, 133)  
@@ -61,7 +61,7 @@ def welcomepic(pic, user, chat, id, uname):
 
 @app.on_message(filters.command("welcome") & ~filters.private)
 async def auto_state(_, message):
-    usage = "**❖ ᴜsᴀɢᴇ ➥** /swel [ᴇɴᴀʙʟᴇ|ᴅɪsᴀʙʟᴇ]"
+    usage = "❖ ᴜsᴀɢᴇ ➥ /swel [ᴇɴᴀʙʟᴇ|ᴅɪsᴀʙʟᴇ]"
     if len(message.command) == 1:
         return await message.reply_text(usage)
     chat_id = message.chat.id
@@ -112,12 +112,16 @@ async def greet_group(_, member: ChatMemberUpdated):
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
             await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
-        except Exception as e:
+            except Exception as e:
             LOGGER.error(e)
     try:
         welcomeimg = welcomepic(
             pic, user.first_name, member.chat.title, user.id, user.username
         )
+        button_text = "❍ 𓆩 𝗦𝐓𝐘𝐋𝐈𝐒𝐇 ⌯ 𝗡𝐀𝐌𝐄 𓆪 ❍"
+            add_button_text = "❍ 𝐏𝐑𝐎𝐌𝐎𝐓𝐈𝐎𝐍 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄 ❍"
+            deep_link = f"https://t.me/TG_NAME_STYLE"
+            add_link = f"https://t.me/TG_NAME_STYLE/4602"
         temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
             member.chat.id,
             photo=welcomeimg,
@@ -132,13 +136,11 @@ async def greet_group(_, member: ChatMemberUpdated):
 ❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ ๛[❤️‍🔥 • 𝛚𝛐𝛚 • ❤️‍🔥 ](https://t.me/ll_ITZ_NAWAB_HERE_ll)
 ▰▱▱▱▱▱▱▱▱▱▱▱▱▱▰
 """,
-reply_markup=InlineKeyboardMarkup(
-[
-[InlineKeyboardButton(f"ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ", url=f"https://t.me/{app.username}?startgroup=True"),
-]
-]
-))
-
+reply_markup=InlineKeyboardMarkup([
+    [InlineKeyboardButton(button_text, url=deep_link)],
+     [InlineKeyboardButton(text=add_button_text, url=add_link)],
+        ])
+        )
     except Exception as e:
         LOGGER.error(e)
     try:
@@ -146,6 +148,3 @@ reply_markup=InlineKeyboardMarkup(
         os.remove(f"downloads/pp{user.id}.png")
     except Exception as e:
         pass
-
-
-      
